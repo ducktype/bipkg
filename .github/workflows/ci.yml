@@ -22,4 +22,5 @@ jobs:
       - env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create ${{ github.head_ref }}.${{ github.sha }} ./bip/bin/bip ./bix/bix
+          DT=`git log -1 --pretty='format:%cd' --date=format:'%Y-%m-%d_%H:%M:%S'`
+          gh release create $DT ./bip/bin/bip ./bix/bix`
