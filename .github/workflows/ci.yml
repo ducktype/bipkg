@@ -13,9 +13,7 @@ jobs:
     #  run:
     #    working-directory: ${{ github.repository }}
     steps:
+      - uses: actions/checkout@v3
       - run: |
-          pwd
-          ls -lah $GITHUB_WORKSPACE
-          printenv
           bash ./bip/build.sh
           gh release create ./bip/bin/bip ./bix/bix 
