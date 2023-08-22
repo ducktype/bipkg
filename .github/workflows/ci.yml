@@ -2,11 +2,15 @@ name: 'ci'
 on:
   push:
   workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+    working-directory: ${{ github.workspace }}
 jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          $GITHUB_WORKSPACE/bip/build.sh
+          bash ./bip/build.sh
       - run: |
-          gh release create $GITHUB_WORKSPACE/bip/bin/bip $GITHUB_WORKSPACE/bix/bix 
+          gh release create ./bip/bin/bip ./bix/bix 
