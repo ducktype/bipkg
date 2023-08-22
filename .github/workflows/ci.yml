@@ -23,4 +23,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           DT=`git log -1 --pretty='format:%cd' --date=format:'%Y-%m-%d_%H:%M:%S'`
-          gh release create $DT ./bip/bin/bip ./bix/bix`
+          gh release create $DT ./bip/bin/bip ./bix/bix
