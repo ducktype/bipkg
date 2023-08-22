@@ -9,11 +9,12 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.repository }}
+    #defaults:
+    #  run:
+    #    working-directory: ${{ github.repository }}
     steps:
       - run: |
+          ls -lah
+          printenv
           bash ./bip/build.sh
-      - run: |
           gh release create ./bip/bin/bip ./bix/bix 
