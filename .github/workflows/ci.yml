@@ -22,5 +22,6 @@ jobs:
       - env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          DT=`git log -1 --pretty='format:%cd' --date=format:'%Y-%m-%d_%H:%M:%S'`
+          DT=`git --no-pager log -n1 --decorate=no --pretty='format:%h-%cd' --date=format:'%Y-%m-%d_%H-%M-%S'`
+          echo $DT
           gh release create $DT ./bip/bin/bip ./bix/bix
