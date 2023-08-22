@@ -22,4 +22,4 @@ jobs:
       - env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create $GITHUB_REF_NAME ./bip/bin/bip ./bix/bix 
+          gh release create ${{ github.head_ref }}.${{ github.sha }} ./bip/bin/bip ./bix/bix
