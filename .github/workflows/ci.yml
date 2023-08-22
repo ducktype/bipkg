@@ -9,6 +9,7 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    permissions: write-all
     #defaults:
     #  run:
     #    working-directory: ${{ github.repository }}
