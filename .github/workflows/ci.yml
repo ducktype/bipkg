@@ -1,19 +1,12 @@
 name: 'ci'
 on:
   push:
-    branches:
-      - 'main'
   workflow_dispatch:
-    inputs:
-      remote-ssh:
-        description: 'Remote SSH'
-        required: true
-        default: 'user@12.10.7.234'
 jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          ./bip/build.sh
+          $GITHUB_WORKSPACE/bip/build.sh
       - run: |
-          gh release create ./bip/bin/bip ./bix/bix 
+          gh release create $GITHUB_WORKSPACE/bip/bin/bip $GITHUB_WORKSPACE/bix/bix 
