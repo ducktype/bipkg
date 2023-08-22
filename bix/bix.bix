@@ -1,0 +1,14 @@
+# final execution mode: ld | ld_env | ns
+mode = ld
+
+# ld binary and lib paths to use in ld or ld_env mode
+ld = {{BIX_BD}}/approot/lib64/ld-linux-x86-64.so.2
+ld_libpaths = {{BIX_BD}}/approot/lib64:{{BIX_BD}}/approot/lib
+
+# ns parameters to use in ns mode
+ns_newroot = {{BIX_BD}}/approot
+# ns tmpdir will be automatically created and populated
+ns_tmpdir = {{BIX_BD}}/.bix_ns
+
+# final user executable relative or absolute path/cmd
+cmd = {{BIX_BD}}/approot/usr/sbin/nginx
