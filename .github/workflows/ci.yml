@@ -15,7 +15,12 @@ jobs:
     #    working-directory: ${{ github.repository }}
     steps:
       #- uses: actions/checkout@v3
-      - run: git fetch --depth 1 $GITHUB_REF
+      - run: |
+        git init
+        git remote add origin $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+        git fetch origin --depth=1 $GITHUB_SHA
+        git checkout $GITHUB_SHA
+        ls -lah
       - run: |
           chmod +x ./bip/build.sh
           chmod +x ./bix/build.sh
