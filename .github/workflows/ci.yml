@@ -16,11 +16,11 @@ jobs:
     steps:
       #- uses: actions/checkout@v3
       - run: |
-        git init
-        git remote add origin $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
-        git fetch origin --depth=1 $GITHUB_SHA
-        git checkout $GITHUB_SHA
-        ls -lah
+          git init
+          git remote add origin $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+          git fetch origin --depth=1 $GITHUB_SHA
+          git checkout $GITHUB_SHA
+          ls -lah
       - run: |
           chmod +x ./bip/build.sh
           chmod +x ./bix/build.sh
