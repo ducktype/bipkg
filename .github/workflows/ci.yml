@@ -20,7 +20,6 @@ jobs:
           git remote add origin $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
           git fetch origin --depth=1 $GITHUB_SHA
           git checkout $GITHUB_SHA
-          ls -lah
       - run: |
           shopt -s globstar
           chmod +x ./**/*.sh
@@ -29,5 +28,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           DT=`git --no-pager log -n1 --decorate=no --pretty='format:%cd_%h' --date=format:'%Y-%m-%d_%H-%M-%S'`
-          echo $DT
           gh release create $DT ./bip/bin/bip ./bix/bix
