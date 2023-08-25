@@ -22,8 +22,8 @@ jobs:
           git checkout $GITHUB_SHA
           ls -lah
       - run: |
-          chmod +x ./bip/build.sh
-          chmod +x ./bix/build.sh
+          shopt -s globstar
+          chmod +x ./**/*.sh
           ./bip/build.sh
       - env:
           GH_TOKEN: ${{ github.token }}
